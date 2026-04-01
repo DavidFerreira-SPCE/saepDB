@@ -8,10 +8,9 @@
 <body>
 
     <div class="sidebar">
-        <h2>Painel SAEP</h2>
+        <h2>Estoque Forra-Bucho</h2>
         <a href="#"> Inventário</a>
         <a href="#"> Fornecedores</a>
-        <a href="#"> Lotes</a>
         <a href="#"> Movimentações</a>
         
         <a href="index.html" class="btn-sair"> Sair</a>
@@ -28,7 +27,6 @@
                     <th>Nome do Produto</th>
                     <th>Categoria</th>
                     <th>Marca</th>
-                    <th>Qtd. Atual</th>
                 </tr>
             </thead>
             <tbody id="tabelaProdutos">
@@ -42,11 +40,7 @@
             try {
 
                 const response = await fetch('http://localhost:3000/inventory');
-                
-
                 const produtos = await response.json();
-
-
                 const tbody = document.getElementById('tabelaProdutos');
                 tbody.innerHTML = '';
 
@@ -54,8 +48,6 @@
                     tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Nenhum produto cadastrado no estoque.</td></tr>';
                     return;
                 }
-
-
                 produtos.forEach(produto => {
                     const linha = `
                         <tr>
@@ -63,7 +55,6 @@
                             <td><strong>${produto.productname}</strong></td>
                             <td>${produto.category}</td>
                             <td>${produto.brand}</td>
-                            <td>${produto.productqty} ${produto.unit_of_measure}</td>
                         </tr>
                     `;
                     tbody.innerHTML += linha;
