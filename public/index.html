@@ -3,21 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Controle de Estoque</title>
-    <style>
-        /* Um pouco de CSS apenas para a tela não ficar feia e desalinhada */
-        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; }
-        .login-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 300px; }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #0056b3; }
-        .erro { color: red; font-size: 14px; text-align: center; display: none; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="login-box">
         <h2 style="text-align: center;">SAEP Restaurante</h2>
-        
         <form id="formLogin">
             <label for="mail">E-mail:</label>
             <input type="email" id="mail" required placeholder="exemplo@restaurante.com">
@@ -27,9 +18,34 @@
 
             <button type="submit">Entrar</button>
         </form>
-
         <p id="mensagemErro" class="erro">E-mail ou senha inválidos.</p>
     </div>
 
+    <script>
+        document.getElementById('formLogin').addEventListener('submit', async function(event) {
+            event.preventDefault();  
+            const mailDigitado = document.getElementById('mail').value;
+            const senhaDigitada = document.getElementById('password').value;
+            try {
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        mail: mailDigitado, 
+                        password: senhaDigitada 
+                    }) 
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    alert('Logado com sucesso! Bem-vindo, ' + data.user.username);
+                } else {
+                    document.getElementById('mensagemErro').style.display = 'block';
+                }
+            } catch (error) {
+                alert('Erro de conexão! O servidor está rodando no terminal?');
+            }
+        });
+    </script>
 </body>
 </html>
