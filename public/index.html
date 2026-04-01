@@ -36,9 +36,10 @@
                     }) 
                 });
 
-                if (response.ok) {
+               if (response.ok) {
                     const data = await response.json();
                     alert('Logado com sucesso! Bem-vindo, ' + data.user.username);
+                    window.location.href = 'painel.html';
                 } else {
                     document.getElementById('mensagemErro').style.display = 'block';
                 }
