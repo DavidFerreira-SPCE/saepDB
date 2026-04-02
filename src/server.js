@@ -1,22 +1,15 @@
 const express = require("express");
 const path = require("path");
-const authRoutes = require('../routes/authRoutes.js');
-const inventoryRoutes = require('../routes/inventoryRoutes.js');
-const suppliersRoutes = require('../routes/suppliersRoutes.js');
-const batchesRoutes = require('../routes/batchesRoutes.js');
-const movementsRoutes = require('../routes/movementsRoutes.js');
-const alertsRoutes = require('../routes/alertsRoutes.js');
-
+const authRoutes = require('./routes/authROUTES.js');
+const inventoryRoutes = require('./routes/inventoryROUTES.js');
+const suppliersRoutes = require('./routes/suppliersROUTES.js');
+const batchesRoutes = require('./routes/batchesROUTES.js');
+const movementsRoutes = require('./routes/movementsROUTES.js');
+const alertsRoutes = require('./routes/alertsROUTES.js');
 const app = express();
 
-// Middlewares
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public'))); 
-
-
-// =======================================================
-// USANDO AS ROTAS (Conectando as URLs)
-// =======================================================
 app.use('/login', authRoutes);
 app.use('/inventory', inventoryRoutes);
 app.use('/suppliers', suppliersRoutes);
