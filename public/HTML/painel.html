@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema | Estoque do Restaurante</title>
+    <link rel="stylesheet" href="/CSS/painel.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>Forra Bucho, piá!
+            </h2>
+        </div>
+        <nav class="menu">
+            <button onclick="mudarAba('estoque')" class="active" id="btn-estoque">Estoque</button>
+            <button onclick="mudarAba('fornecedores')" id="btn-fornecedores">Fornecedores</button>
+            <button onclick="mudarAba('movimentacoes')" id="btn-movimentacoes">Movimentações</button>
+            <button onclick="sair()" class="btn-sair">Sair</button>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h1>Painel de Controle</h1>
+            <div class="user-info">Olá, Administrador</div>
+        </header>
+
+        <section id="aba-estoque" class="aba ativa">
+            <h2>Gestão de Estoque</h2>
+            <button class="btn-novo">+ Novo Produto</button>
+            
+            <table class="tabela-padrao">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Categoria</th>
+                        <th>Quantidade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-estoque">
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="aba-fornecedores" class="aba">
+            <h2>Gestão de Fornecedores</h2>
+            <p>Em breve carregaremos os fornecedores aqui...</p>
+        </section>
+
+        <section id="aba-movimentacoes" class="aba">
+            <h2>Histórico de Movimentações</h2>
+            <p>Em breve carregaremos o histórico aqui...</p>
+        </section>
+
+    </main>
+
+    <script src="/JS/painel.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ const suppliersRoutes = require('./routes/suppliersROUTES.js');
 const batchesRoutes = require('./routes/batchesROUTES.js');
 const movementsRoutes = require('./routes/movementsROUTES.js');
 const alertsRoutes = require('./routes/alertsROUTES.js');
+const { Console } = require("console");
 const app = express();
 
 app.use(express.json());
@@ -21,7 +22,14 @@ app.use('/alerts', alertsRoutes);
 // INICIALIZAÇÃO DO SERVIDOR
 // =======================================================
 const PORT = process.env.PORT || 3000;
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/HTML/index.html'));
+});
+app.get('/painel', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/HTML/painel.html'));
+});
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`✅ Arquitetura MVC implementada com sucesso!`);
+  console.log(`🌐 Acesse o sistema em: http://localhost:${PORT}/index`);
 });

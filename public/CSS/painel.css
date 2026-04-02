@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #f4f6f9; /* Fundo cinza clarinho */
+}
+
+/* Sidebar (Menu Lateral) */
+.sidebar {
+    width: 250px;
+    background-color: #1e1e2f;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.menu button {
+    background: none;
+    border: none;
+    color: #bbb;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu button:hover, .menu button.active {
+    background-color: #357abd;
+    color: white;
+}
+
+.btn-sair {
+    margin-top: auto;
+    color: #ff4c4c !important;
+}
+
+/* Conteúdo Principal */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+header {
+    background-color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.aba {
+    display: none; /* Esconde todas as abas por padrão */
+    padding: 30px;
+}
+
+.aba.ativa {
+    display: block; /* Mostra apenas a aba com a classe 'ativa' */
+}
+
+/* Tabelas e Botões */
+.btn-novo {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.tabela-padrao {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabela-padrao th, .tabela-padrao td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.tabela-padrao th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
