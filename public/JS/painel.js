@@ -30,8 +30,6 @@ async function carregarEstoque() {
         produtos.forEach(produto => {
             const linha = document.createElement('tr');
             
-            // O PostgreSQL pode devolver 'productname' todo em minúsculas ou 'productName'. 
-            // O || garante que pega o valor certo independentemente disso.
             const nomeExibicao = produto.productName || produto.productname || 'Sem Nome';
             const quantidadeExibicao = produto.min_stock_alert || produto.productqty || 0;
 
@@ -39,7 +37,10 @@ async function carregarEstoque() {
                 <td>${produto.id}</td>
                 <td>${nomeExibicao}</td>
                 <td>${produto.category || 'Sem Categoria'}</td>
+                <td>${produto.brand || '-'}</td>
+                <td>${produto.unit_of_measure || '-'}</td>
                 <td>${quantidadeExibicao}</td>
+                <td>${produto.storage_condition || '-'}</td>
                 <td>
                     <button style="color: red; cursor: pointer; border: none; background: none;" onclick="deletarProduto(${produto.id})">Excluir</button>
                 </td>
