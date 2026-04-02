@@ -1,112 +1,107 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* Configuração Geral */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+}
+
+.wrapper {
     display: flex;
     height: 100vh;
-    background-color: #f4f6f9; /* Fundo cinza clarinho */
 }
 
-/* Sidebar (Menu Lateral) */
+/* SIDEBAR */
 .sidebar {
-    width: 250px;
+    width: 260px;
     background-color: #1e1e2f;
     color: white;
-    display: flex;
-    flex-direction: column;
-}
-
-.logo {
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #333;
-}
-
-.menu {
     display: flex;
     flex-direction: column;
     padding: 20px 0;
 }
 
+.sidebar .logo {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.menu { display: flex; flex-direction: column; }
+
 .menu button {
-    background: none;
-    border: none;
-    color: #bbb;
-    padding: 15px 20px;
-    text-align: left;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+    background: none; border: none; color: #a2a2b3;
+    padding: 15px 25px; text-align: left; font-size: 16px;
+    cursor: pointer; transition: 0.3s;
 }
 
 .menu button:hover, .menu button.active {
-    background-color: #357abd;
-    color: white;
+    background-color: #383854; color: white;
+    border-left: 4px solid #4a90e2;
 }
 
-.btn-sair {
-    margin-top: auto;
-    color: #ff4c4c !important;
-}
+.btn-sair { margin-top: auto; color: #ff5c5c !important; }
 
-/* Conteúdo Principal */
-.content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
+/* CONTEÚDO */
+.content { flex: 1; padding: 30px; overflow-y: auto; }
 
 header {
-    background-color: white;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #ddd;
 }
 
-.aba {
-    display: none; /* Esconde todas as abas por padrão */
-    padding: 30px;
-}
-
-.aba.ativa {
-    display: block; /* Mostra apenas a aba com a classe 'ativa' */
-}
-
-/* Tabelas e Botões */
-.btn-novo {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
+/* TABELA */
 .tabela-padrao {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 100%; border-collapse: collapse; background: white;
+    border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.tabela-padrao th, .tabela-padrao td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+
+/* --- LÓGICA DE EXIBIÇÃO DAS ABAS --- */
+.aba { display: none; }
+.aba.ativa { display: block; }
+
+/* --- ESTILO DO MODAL (FIXO NA TELA) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 25px;
     border-radius: 8px;
-    overflow: hidden;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
 }
 
-.tabela-padrao th, .tabela-padrao td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
+.close {
+    position: absolute; right: 15px; top: 10px;
+    font-size: 28px; cursor: pointer; color: #333;
 }
 
-.tabela-padrao th {
-    background-color: #f8f9fa;
-    font-weight: bold;
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+.input-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+
+.btn-salvar {
+    background-color: #28a745; color: white; border: none;
+    padding: 12px; width: 100%; font-weight: bold; cursor: pointer;
+    border-radius: 4px; margin-top: 10px;
+}
+
+.btn-salvar:hover { background-color: #218838; }
+
+.btn-novo {
+    background-color: #4a90e2; color: white; border: none;
+    padding: 10px 20px; border-radius: 4px; cursor: pointer;
+    margin-bottom: 20px; font-weight: bold;
 }

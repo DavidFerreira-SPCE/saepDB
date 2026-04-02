@@ -1,45 +1,40 @@
-// Capturando o formulário da tela
 const loginForm = document.getElementById('loginForm');
 const errorMessage = document.getElementById('errorMessage');
 
 loginForm.addEventListener('submit', async (evento) => {
- 
     evento.preventDefault(); 
-
-    // Pega os valores que usuário digitou
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
+    // Limpa qualquer mensagem de erro anterior
     errorMessage.textContent = '';
 
     try {
-        // OBS: Se a sua rota for /usuarios ou /registro, mude o '/login' abaixo.
         const resposta = await fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+
             body: JSON.stringify({ 
                 mail: email, 
                 password: password 
             })
         });
 
+
         const dados = await resposta.json();
 
-        // Se o back-end responder com status 200 (OK)
+        // Verifica se a requisição foi um sucesso
         if (resposta.ok) {
-            console.log("Sucesso:", dados);
-
-            window.location.href = '/HTML/painel.html';
-            alert('Login realizado com sucesso! (Aqui redireciona pro painel)');
+            console.log("Sucesso! Usuário validado:", dados);
+            window.location.href = '/painel';
         } else {
-
-            errorMessage.textContent = dados.error || 'Erro ao realizar login.';
+            errorMessage.textContent = dados.error || 'E-mail ou senha incorretos.';
         }
 
-    } catch (erro) {
-        console.error("Erro na requisição:", erro);
+    } catch (error) {
+        console.error("Erro na comunicação com o servidor:", error);
         errorMessage.textContent = 'Servidor offline. Tente novamente mais tarde.';
     }
 });
