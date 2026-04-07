@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Do Restaurante</title>
+    <link rel="stylesheet" href="../CSS/painel2.css">
+</head>
+<body>
+            <div class="wrapper"> 
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Forra Bucho, piá!</h2>
+            </div>
+            <nav class="menu">
+                <button id="btn-estoque">Listar Estoque</button>
+                <button onclick="window.location.href='painel.html'" class="btn-voltar">Voltar</button>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <h1>Painel de Controle</h1>
+                <div class="user-info">Olá, Administrador</div>
+            </header>
+
+            <section id="aba-estoque" class="aba ativa">
+                <h2>Boas Vindas ao estoque</h2>
+                <button class="btn-novo" onclick="abrirModal()">+ Novo Produto</button>
+                
+<table class="tabela-padrao">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Categoria</th>
+            <th>Marca</th>
+            <th>Un.Medida</th>
+            <th>Armazenamento</th>
+        </tr>
+    </thead>
+    <tbody id="tabela-estoque">
+    </tbody>
+</table>
+    </div> 
+</body>
+</html>

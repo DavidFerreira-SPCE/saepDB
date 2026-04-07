@@ -26,7 +26,7 @@ produtos.forEach(p => {
                     <td>${p.category}</td>
                     <td>${p.brand}</td>
                     <td>${p.unit_of_measure}</td>
-                    <td>${p.productqty || 0}</td>
+                    <td>${p.min_stock_alert || 0}</td>
                     <td>${p.storage_condition}</td>
                     <td>
                         <button onclick="deletarProduto(${p.id})">Excluir</button>
@@ -91,6 +91,18 @@ async function deletarProduto(id) {
 // 🔹 SAIR
 function sair() {
     window.location.href = '/index.html';
+}
+// 🔹 TROCAR ABA
+function mudarAba(nomeAba) {
+    // Esconde todas as abas
+    const abas = document.querySelectorAll('.aba');
+    abas.forEach(aba => aba.classList.remove('ativa'));
+
+    // Mostra a aba clicada
+    const abaAtiva = document.getElementById('aba-' + nomeAba);
+    if (abaAtiva) {
+        abaAtiva.classList.add('ativa');
+    }
 }
 // 🔹 INICIAR
 document.addEventListener('DOMContentLoaded', carregarEstoque);
