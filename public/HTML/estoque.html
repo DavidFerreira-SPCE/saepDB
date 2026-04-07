@@ -13,21 +13,16 @@
                 <h2>Forra Bucho, piá!</h2>
             </div>
             <nav class="menu">
-                <button id="btn-estoque">Listar Estoque</button>
-                <button onclick="window.location.href='painel.html'" class="btn-voltar">Voltar</button>
+                <button onclick="voltar()" class="btn-voltar">Voltar</button>
             </nav>
         </aside>
 
         <main class="content">
             <header>
-                <h1>Painel de Controle</h1>
-                <div class="user-info">Olá, Administrador</div>
+                <h1>Estoque</h1>
             </header>
-
             <section id="aba-estoque" class="aba ativa">
-                <h2>Boas Vindas ao estoque</h2>
-                <button class="btn-novo" onclick="abrirModal()">+ Novo Produto</button>
-                
+                <h2>Aqui está o estoque do restaurante</h2>
 <table class="tabela-padrao">
     <thead>
         <tr>
@@ -35,13 +30,15 @@
             <th>Produto</th>
             <th>Categoria</th>
             <th>Marca</th>
-            <th>Un.Medida</th>
+            <th>Alerta de Estoque Mínimo</th>
             <th>Armazenamento</th>
         </tr>
     </thead>
-    <tbody id="tabela-estoque">
-    </tbody>
+  <tbody id="tabela-estoque">
+</tbody>
 </table>
+</section>
     </div> 
+    <script src="../JS/estoque.js"></script>
 </body>
 </html>
