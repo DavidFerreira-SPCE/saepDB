@@ -4,9 +4,10 @@ const router = express.Router();
 // Importamos as funções que criamos no Controller
 const inventoryCTRS = require('../controllers/inventoryCTRS.js');
 
-// Configuramos as rotas (Note que usamos apenas '/' porque a palavra '/inventory' ficará no server.js)
+// Configuramos as rotas
 router.get('/', inventoryCTRS.getInventory);
 router.post('/', inventoryCTRS.createInventory);
-router.delete('/inventory/:id', inventoryCTRS.deleteInventory);
+router.put('/:id', inventoryCTRS.updateInventory)
+router.delete('/:id', inventoryCTRS.deleteInventory);
 
 module.exports = router;

@@ -20,7 +20,6 @@ app.use('/alerts', alertsRoutes);
 
 // =======================================================
 // INICIALIZAÇÃO DO SERVIDOR
-// =======================================================
 const PORT = process.env.PORT || 3000;
 app.get('/index', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/HTML/index.html'));
